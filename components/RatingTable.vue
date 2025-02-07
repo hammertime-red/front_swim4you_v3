@@ -178,9 +178,9 @@
                     </NuxtLink>
                 </template>
             </Column>
-            <Column field="athlete_birthdate" header="Дата рождения" sortable>
+            <Column field="athlete_birthdate" header="Год рождения" sortable>
                 <template #body="{data}">
-                    <span class="text-sm">{{formatTimestamp(data.athlete_birthdate, 'd MMM yyyy')}}</span>
+                    <span class="text-sm">{{formatTimestamp(data.athlete_birthdate, 'yyyy')}}</span>
                 </template>
             </Column>
             <Column field="club_code" header="Субъект" sortable>
@@ -205,7 +205,7 @@
             </Column>
             <Column field="formatted_session_date" header="Дата" sortable>
                 <template #body="{data}">
-                    <span class="text-sm">{{formatTimestamp(data.formatted_session_date, 'd MMM yyyy')}}</span>
+                    <span class="text-sm">{{formatTimestamp(data.formatted_session_date, 'dd.MM.yyyy')}}</span>
                 </template>
             </Column>
             <template #empty>

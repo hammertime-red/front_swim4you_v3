@@ -1,6 +1,8 @@
 <template>
-    <img v-if="src" class="rounded-full avatar" :src="src" :class="(size ? size : 'sm') +' '+ (className ? className : '')" />
-    <span v-else class="flex items-center justify-center rounded-full text-white font-bold avatar avatar_badge" :class="(size ? size : 'sm') +' '+ (className ? className : '')" :style="colorByName">{{getFirstLetters}}</span>
+    <div class="shrink-0">
+        <img v-if="src" class="rounded-full avatar " :src="src" :class="(size ? size : 'sm') +' '+ (className ? className : '')" />
+        <span v-else class="flex items-center justify-center rounded-full text-white font-bold avatar avatar_badge" :class="(size ? size : 'sm') +' '+ (className ? className : '')" :style="colorByName">{{getFirstLetters}}</span>
+    </div>
 </template>
 
 <script>

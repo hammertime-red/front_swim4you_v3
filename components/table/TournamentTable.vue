@@ -1,5 +1,5 @@
 <template>
-	<FilterWrap :class="filterClass ? filterClass : ''">
+<!--	<FilterWrap :class="filterClass ? filterClass : ''">
 		<FilterSelect
 			v-if="!altFilters"
 			label="Пол"
@@ -19,7 +19,7 @@
 				{{ item }}
 			</option>
 		</FilterSelect>
-		<!-- <FilterSelect
+		&lt;!&ndash; <FilterSelect
 			label="Стиль"
 			v-model="filter.stroke"
 			:className="altFilters ? 'col-12 col-md-3' : 'col-12 col-md-4 col-lg-2'">
@@ -27,121 +27,23 @@
 			<option v-for="(item, i) in filter_data.strokes" :key="i" :value="item">
 				{{ item }}
 			</option>
-		</FilterSelect> -->
-		<!-- <FilterSelect 
+		</FilterSelect> &ndash;&gt;
+		&lt;!&ndash; <FilterSelect
             label="Страна" 
             v-model="filter.country" 
             :className="altFilters ? 'col-12 col-md-3' :'col-12 col-md-4 col-lg-2'">
             <option value="0">Все</option>
             <option v-for="(item, i) in filter_data.countries" :key="i" :value="item">{{item}}</option>
-        </FilterSelect> -->
+        </FilterSelect> &ndash;&gt;
 		<FilterInput
 			label="Имя спортсмена"
 			placeholder="Введите имя"
 			v-model="filter.athlete_name"
 			:className="altFilters ? 'col-12 col-md-4' : 'col-12 col-md-4 col-lg-2'" />
 		<FilterClear v-if="altFilters" @clicked="clearFilter()" />
-	</FilterWrap>
+	</FilterWrap>-->
 	<div class="data_table data_table--border m-0 mt-4">
-		<table class="table table-hover table-responsive">
-			<thead>
-				<tr class="table_head_prefix">
-                    <td class="border-0"></td>
-					<td class="border-0"></td>
-					<td class="border-0"></td>
-					<td
-						v-for="(item, i) in getStages"
-						:key="i"
-						:colspan="Object.keys(item.distances).length"
-						class="font-bold text-center border-bottom-0 border-top-0">
-						{{ item.name }}
-					</td>
-					<td v-if="show_summ" class="border-0"></td>
-				</tr>
-				<tr>
-                    <th scope="col" class="font-bold text-sm"><!-- Место --></th>
-					<th scope="col" class="font-bold text-sm">
-						<!-- <SortTrigger
-							@click="sort('athlete_name')"
-							:active="currentSort === 'athlete_name' ? true : false"
-							name="Фамилия Имя"
-							:order="currentSortDir" /> -->
-					</th>
-					<th scope="col" class="font-bold text-sm"><!-- Код клуба/региона --></th>
-					<th
-						v-for="(item, i) in getDistances"
-						:key="i"
-						scope="col"
-						class="font-bold text-sm text-center">
-						<SortTrigger
-							@click="sort('deep_' + item.stage + '__' + item.name)"
-							:active="
-								currentSort === 'deep_' + item.stage + '__' + item.name ? true : false
-							"
-							:name="item.name"
-							:order="currentSortDir" />
-					</th>
-					<th v-if="show_summ" scope="col" class="font-bold text-sm text-center">
-						<SortTrigger
-							@click="sort('summ')"
-							:active="currentSort === 'summ' ? true : false"
-							name="Итого"
-							:order="currentSortDir" />
-					</th>
-				</tr>
-			</thead>
-			<tbody>
-				<template v-for="(item, i) in sortedPaginatedRows" :key="i">
-					<tr>
-                        <td class="align-middle text-center">{{item.rating_place}}</td>
-						<td class="align-middle">
-							<div class="table_name_item flex items-center">
-                                <NuxtLink :to="{name: 'athlete', params: {id: item.athlete.id}}" class="text-dark">
-                                    <img
-                                        v-if="show_summ && item.rating_place < 4"
-                                        class="table_name_item__medal me-2"
-                                        :src="'/assets/img/medal_' + item.rating_place + '.svg'" />
-                                    <Avatar
-                                        :src="item.athlete.avatar"
-                                        :name="item.athlete_name"
-                                        className="me-2"></Avatar>
-                                    <span class="font-bold" :class="show_summ && item.rating_place < 4 ? '' : 'small'">{{
-                                        item.athlete_name
-                                    }}</span>
-                                </NuxtLink>
-							</div>
-						</td>
-						<td class="align-middle text-sm">
-							<div class="table_region_item flex items-center">
-								{{item.club.code}}
-							</div>
-						</td>
-						<template v-for="(stage, index) in getStages" :key="index">
-							<td
-								v-for="(distance, n) in Object.keys(stage.distances)"
-								:key="n"
-								class="align-middle text-sm text-center">
-								{{
-									item.stages[index]?.distances && item.stages[index].distances[distance] != null && item.stages[index].distances[distance] > -1
-										? item.stages[index].distances[distance]
-										: '–'
-								}}
-							</td>
-						</template>
-
-						<td v-if="show_summ" class="align-middle text-sm text-center">
-							{{ item.summ }}
-						</td>
-					</tr>
-				</template>
-			</tbody>
-		</table>
-		<PaginationBox
-			class="mt-4 m-4"
-			:currentPage="currentPage"
-			:pageSize="pageSize"
-			:itemsLength="sortedRows.length"
-			@changepage="changeCurrentPage" />
+ 
 	</div>
 </template>
 

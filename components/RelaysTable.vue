@@ -188,7 +188,7 @@
                 </Column>
                 <Column field="formatted_session_date" header="Дата" sortable>
                     <template #body="{data}">
-                        <span class="text-sm">{{formatTimestamp(data.formatted_session_date, 'd MMM yyyy')}}</span>
+                        <span class="text-sm">{{formatTimestamp(data.formatted_session_date, 'dd.MM.yyyy')}}</span>
                     </template>
                 </Column>
                 <template #empty>
